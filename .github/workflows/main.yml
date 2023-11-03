@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           cd tax-app
-          npm ci
+          npm i
 
       - name: Build React app
         run: npm run build

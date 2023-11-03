@@ -13,6 +13,8 @@ import {
     Select,
     MenuItem,
 } from '@mui/material';
+import { useRouter } from 'next/navigation';
+
 
 const theme = createTheme({
     palette: {
@@ -42,27 +44,26 @@ const theme = createTheme({
 
 export default function Form() {
     const [formData, setFormData] = useState({
-        username: '',
-        first_name: '',
-        last_name: '',
-        password_hash: '',
-        location: '',
+        id: '',
+        name: '',
+        password: '',
         gender: '',
-        age: ''
+        date_of_birth: '',
     });
 
+    const navigation = useRouter();
     const handleChange = (event) => {
         const { name, value } = event.target;
         setFormData((prevData) => ({
             ...prevData,
             [name]: value,
         }));
-    };
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const apiEndpoint = 'http://127.0.0.1:5001/api/auth/signup';
+        const apiEndpoint = 'http://52.70.243.87/signup';
 
         try {
             const response = await fetch(apiEndpoint, {
@@ -76,11 +77,12 @@ export default function Form() {
 
             const data = await response.json();
 
-            if (response.status === 201) {
+            if (data.success == true) {
                 console.log("Response from server:", data);
                 alert(data.message);
-                window.location.href = '/login';
-            } else if (response.status === 500) {
+                // push to login page via next navigate
+                navigation.push(`/login`);
+            } else if (data.success == false) {
                 // Alert if there's any issue with the server itself.
                 alert(data.message);
             } else {
@@ -119,11 +121,11 @@ export default function Form() {
                                     margin="normal"
                                     required
                                     fullWidth
-                                    id="username"
-                                    label="Username"
-                                    name="username"
-                                    autoComplete="username"
-                                    value={formData.username}
+                                    id="id"
+                                    label="ID"
+                                    name="id"
+                                    autoComplete="id"
+                                    value={formData.id}
                                     onChange={handleChange}
                                 />
                                 <TextField
@@ -131,14 +133,14 @@ export default function Form() {
                                     margin="normal"
                                     required
                                     fullWidth
-                                    id="first_name"
-                                    label="First Name"
-                                    name="first_name"
-                                    autoComplete="given-name"
-                                    value={formData.first_name}
+                                    id="name"
+                                    label="Name"
+                                    name="name"
+                                    autoComplete="fullname"
+                                    value={formData.name}
                                     onChange={handleChange}
                                 />
-                                <TextField
+                                {/* <TextField
                                     variant="outlined"
                                     margin="normal"
                                     required
@@ -149,21 +151,21 @@ export default function Form() {
                                     autoComplete="family-name"
                                     value={formData.last_name}
                                     onChange={handleChange}
-                                />
+                                /> */}
                                 <TextField
                                     variant="outlined"
                                     margin="normal"
                                     required
                                     fullWidth
-                                    name="password_hash"
+                                    name="password"
                                     label="Password"
                                     type="password"
-                                    id="password_hash"
+                                    id="password"
                                     autoComplete="current-password"
-                                    value={formData.password_hash}
+                                    value={formData.password}
                                     onChange={handleChange}
                                 />
-                                <TextField
+                                {/* <TextField
                                     variant="outlined"
                                     margin="normal"
                                     required
@@ -174,7 +176,7 @@ export default function Form() {
                                     autoComplete="email"
                                     value={formData.location}
                                     onChange={handleChange}
-                                />
+                                /> */}
                                 <FormControl fullWidth required variant="outlined" margin="normal">
                                     <InputLabel id="gender-label">Gender</InputLabel>
                                     <Select
@@ -195,11 +197,11 @@ export default function Form() {
                                     margin="normal"
                                     required
                                     fullWidth
-                                    id="age"
-                                    label="Age"
-                                    name="age"
-                                    autoComplete="age"
-                                    value={formData.age}
+                                    id="date_of_birth"
+                                    label="Date of Birth (YYYY-MM-DD)"
+                                    name="date_of_birth"
+                                    autoComplete="YYYY-MM-DD"
+                                    value={formData.date_of_birth}
                                     onChange={handleChange}
                                 />
                                 <Button

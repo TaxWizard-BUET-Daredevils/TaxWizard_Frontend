@@ -23,7 +23,7 @@ function App() {
             const imgData = canvas.toDataURL("image/png");
             const pdf = new jsPDF();
             pdf.addImage(imgData, "PNG", 0, 0);
-            pdf.save("table.pdf");
+            pdf.save("report.pdf");
         });
     };
 
@@ -141,7 +141,7 @@ function App() {
                         )}
 
                         {tableData && (
-                            <Box marginTop={2}>
+                            <Box marginTop={2} marginBottom={2}>
                                 <Button variant="outlined" onClick={downloadPDF}>
                                     Download PDF
                                 </Button>

@@ -64,6 +64,11 @@ function App() {
         // Handle form submission, e.g., send data to the server
         console.log("Form submitted:", formData);
 
+        if (!formData.year || !formData.income || !formData.location) {
+            alert("Please fill up all the fields");
+            return;
+        }
+
         const apiEndpoint = 'http://52.70.243.87/income_details';
 
         try {

@@ -65,6 +65,14 @@ function App() {
     // Handle form submission, e.g., send data to the server
     console.log("Form submitted:", formData);
 
+    // perform an empty check on the form data
+    // if any one of the field is empty, do not call the api
+
+    if (formData.amount == "" || formData.age == "" || formData.gender == "" || formData.location == "") {
+      alert("Please fill up all the fields");
+      return;
+    }
+
     const apiEndpoint = 'http://52.70.243.87/calculate_tax';
 
     try {

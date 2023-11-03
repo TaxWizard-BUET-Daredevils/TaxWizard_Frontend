@@ -87,7 +87,7 @@ function App() {
             } else if (data.detail) {
                 alert("Unauthorized");
             } else
-                alert(`Unknown error: ${data.message}`);
+                alert(`Error found: ${data.message}`);
         } catch (error) {
             console.log(error);
             alert("Error during the login process. Please try again.");

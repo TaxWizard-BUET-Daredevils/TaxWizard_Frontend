@@ -22,7 +22,7 @@ export default function Welcome() {
                 sx={{
                     position: 'absolute',
                     top: '10%',
-                    color: 'white',
+                    color: 'black',
                     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
                     fontWeight: 'bold',
                 }}
@@ -36,7 +36,7 @@ export default function Welcome() {
                 sx={{
                     position: 'absolute',
                     top: '25%',  // Adjust this as needed to position the subtitle
-                    color: 'white',
+                    color: 'black',
                     textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)',
                 }}
             >

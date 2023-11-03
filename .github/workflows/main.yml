@@ -24,7 +24,9 @@ jobs:
           npm i
 
       - name: Build React app
-        run: npm run build
+        run: |
+          cd tax-app
+          npm run build
 
       - name: Deploy to S3
         uses: jakejarvis/s3-sync-action@v0.5.0

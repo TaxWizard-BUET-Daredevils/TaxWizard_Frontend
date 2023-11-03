@@ -27,6 +27,7 @@ jobs:
         run: |
           cd tax-app
           npm run build
+          ls
 
       - name: Deploy to S3
         uses: jakejarvis/s3-sync-action@v0.5.0

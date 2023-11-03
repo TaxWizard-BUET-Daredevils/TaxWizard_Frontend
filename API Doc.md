@@ -6,9 +6,9 @@
 
 | API Endpoint | HTTP Method | Request Body | Response Code | Response Body | Remarks |
 | --- | --- | --- | --- | --- | --- |
-| /login | POST | { "nid": "string", "password": "string" } | 200 | { "token": "string" } | - |
+| /login | POST | { "nid": "string", "password": "string" } | 200 | - | Login token will be sent |
 | /logout | GET | - | 200 | - | - |
-| /signup | POST | {"token": "string", "nid": "string", "firstname" : "string", "lastname": "string", "password": "string", "gender": "string", "age": "int", "location": "string"} | 201 | - | - |
+| /signup | POST | {"nid": "string", "firstname" : "string", "lastname": "string", "password": "string", "gender": "string", "age": "int", "location": "string"} | 201 | - | - |
 
 
 ### User API

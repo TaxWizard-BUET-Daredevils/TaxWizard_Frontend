@@ -45,7 +45,7 @@ export default function LoginForm() {
                     // saves the id and token in the localstorage for authorization purposes
                     localStorage.setItem('token', data.token);
                     // localStorage.setItem('refresh_token', data.refresh_token);
-                    localStorage.setItem('id', data.id);
+                    localStorage.setItem('id', data.user_id);
                     navigation.push(`/homepage`);
                     alert("Login successful! Redirecting...");
                     console.log(localStorage);

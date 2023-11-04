@@ -49,7 +49,7 @@ import {
             // { label: "Fundings", icon: <Group />, href: `/fundings` },
             { label: "Tax History", icon: <PersonSearchIcon />, href: `/tax` },
             // { label: "Report", icon: <Settings />, href: `/analytics` },
-            // { label: "Profile", icon: <AccountBox />, href: `/profile` }
+            { label: "Profile", icon: <AccountBox />, href: `/user` }
           ].map((item, idx) => (
             <ListItem
               key={idx}
